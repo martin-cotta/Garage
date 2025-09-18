@@ -1,14 +1,6 @@
-//
-//  GarageUITestsLaunchTests.swift
-//  GarageUITests
-//
-//  Created by Martin on 9/16/25.
-//
-
 import XCTest
 
 final class GarageUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

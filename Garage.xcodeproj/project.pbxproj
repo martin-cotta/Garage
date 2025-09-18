@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5B2BD96A2E7A57AD006DBB2E /* UXLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5B2BD9692E7A57AD006DBB2E /* UXLibrary */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5BFB34072E7A2C5C00566D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2BD96A2E7A57AD006DBB2E /* UXLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = Garage;
 			packageProductDependencies = (
+				5B2BD9692E7A57AD006DBB2E /* UXLibrary */,
 			);
 			productName = Garage;
 			productReference = 5BFB33F92E7A2C5B00566D27 /* Garage.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 5BFB33F02E7A2C5B00566D27;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5BFB33FA2E7A2C5B00566D27 /* Products */;
 			projectDirPath = "";
@@ -615,6 +624,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/martin-cotta/UXLibrary";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B2BD9692E7A57AD006DBB2E /* UXLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */;
+			productName = UXLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BFB33F12E7A2C5B00566D27 /* Project object */;
 }

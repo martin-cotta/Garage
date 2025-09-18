@@ -1,0 +1,15 @@
+{
+  "originHash" : "57a9040844d8844646a20baca7c45007c45d044964a8d57b1ec71a2cc59cfa7f",
+  "pins" : [
+    {
+      "identity" : "uxlibrary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martin-cotta/UXLibrary",
+      "state" : {
+        "revision" : "e0207580ba227dcba8509cd2e9bc095a8d345919",
+        "version" : "1.2.2"
+      }
+    }
+  ],
+  "version" : 3
+}

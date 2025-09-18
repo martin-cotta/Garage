@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "kia-seltos.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
