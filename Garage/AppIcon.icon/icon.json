@@ -1,0 +1,36 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:1.00000,0.55294,0.15686,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "—Pngtree—garage clipart cartoon hand drawn_11078659.png",
+          "name" : "—Pngtree—garage clipart cartoon hand drawn_11078659",
+          "position" : {
+            "scale" : 0.2,
+            "translation-in-points" : [
+              7.3359375,
+              -8.53125
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

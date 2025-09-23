@@ -1,13 +1,12 @@
 import SwiftUI
 
 struct FuelSection: View {
-    @State private var isExpanded = true
     var fuel: Fuel
 
     var body: some View {
-        Section(isExpanded: $isExpanded) {
-            DetailRow(label: "Type", value: fuel.type)
-            DetailRow(label: "Octane number", value: fuel.octaneRating) {
+        Section {
+            DetailRow2(record: fuel.type)
+            DetailRow(label: fuel.octaneRating.label, value: fuel.octaneRating.value) {
                 VStack(alignment: .leading) {
                     Text("AKI or (R+M)/2")
                         .font(.headline)
@@ -31,18 +30,13 @@ struct FuelSection: View {
                     .foregroundStyle(.secondary)
                 }
             }
-            DetailRow(label: "Tank capacity", value: fuel.capacityLabel)
-            DetailRow(label: "City mileage efficiency", value: fuel.cityMileageString)
-            DetailRow(label: "Highway mileage efficiency", value: fuel.highwayMileageString)
+            DetailRow2(record: fuel.capacitySummary)
+            DetailRow2(record: fuel.cityFuelEfficiencySummary)
+            DetailRow2(record: fuel.highwayFuelEfficiencySummary)
         } header: {
             HStack {
                 Image(systemName: "fuelpump")
                 Text("Fuel".uppercased())
-                Spacer()
-                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
-                    .onTapGesture {
-                        isExpanded.toggle()
-                    }
             }
         }
     }
@@ -50,14 +44,14 @@ struct FuelSection: View {
 
 #Preview("Fuel section (light)") {
     List {
-        FuelSection(fuel: data.first!.fuel)
+        FuelSection(fuel: Data.cars.first!.fuel)
     }
     .preferredColorScheme(.light)
 }
 
 #Preview("Fuel section (dark)") {
     List {
-        FuelSection(fuel: data.first!.fuel)
+        FuelSection(fuel: Data.cars.first!.fuel)
     }
     .preferredColorScheme(.dark)
 }

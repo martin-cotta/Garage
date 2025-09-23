@@ -1,23 +1,20 @@
 import SwiftUI
 
 struct PowertrainSection: View {
-    @State private var isExpanded = true
-
     var powertrain: Powertrain
 
     var body: some View {
-        Section(isExpanded: $isExpanded) {
+        Section {
             DetailRow(label: "Engine", value: powertrain.engine)
+            DetailRow(label: "Engine oil", value: "5.07qt or 4.8L (full synthetic SAE 0W-20)")
+            DetailRow(label: "Oil change interval", value: powertrain.oilChangeInterval)
+            DetailRow(label: "Coolant fluid", value: "7.4qt or 7L")
+            DetailRow(label: "Brake fluid", value: "0.74qt or 0.7L")
             DetailRow(label: "Transmision", value: powertrain.transmission)
         } header: {
             HStack {
                 Image(systemName: "engine.combustion")
                 Text("Powertrain".uppercased())
-                Spacer()
-                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
-                    .onTapGesture {
-                        isExpanded.toggle()
-                    }
             }
         }
     }
@@ -25,14 +22,14 @@ struct PowertrainSection: View {
 
 #Preview("Powertrain (light)") {
     List {
-        PowertrainSection(powertrain: data.first!.powertrain)
+        PowertrainSection(powertrain: Data.cars.first!.powertrain)
             .preferredColorScheme(.light)
     }
 }
 
 #Preview("Powertrain (dark)") {
     List {
-        PowertrainSection(powertrain: data.first!.powertrain)
+        PowertrainSection(powertrain: Data.cars.first!.powertrain)
             .preferredColorScheme(.dark)
     }
 }

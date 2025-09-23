@@ -46,14 +46,14 @@ struct ServiceSection: View {
 
 #Preview("Service history (light)") {
     List {
-        ServiceSection(services: data.first!.orderedServices)
+        ServiceSection(services: Data.cars.first!.orderedServices)
     }
     .preferredColorScheme(.light)
 }
 
 #Preview("Service history (dark)") {
     List {
-        ServiceSection(services: data.first!.orderedServices)
+        ServiceSection(services: Data.cars.first!.orderedServices)
     }
     .preferredColorScheme(.dark)
 }

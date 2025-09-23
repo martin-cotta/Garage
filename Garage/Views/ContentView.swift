@@ -3,10 +3,14 @@ import SwiftUI
 struct ContentView: View {
     @State private var presentedCars: [String] = []
 
+    var cars: [Car] {
+        Data.cars
+    }
+
     var body: some View {
         NavigationStack(path: $presentedCars) {
             List {
-                ForEach(data) { car in
+                ForEach(cars) { car in
                     Button {
                         presentedCars.append(car.id.uuidString)
                     } label: {
@@ -22,7 +26,7 @@ struct ContentView: View {
             }
             .navigationTitle("Garage")
             .navigationDestination(for: String.self) { id in
-                CarDetail(car: data.first(where: { $0.id.uuidString == id })!)
+                CarDetail(car: cars.first(where: { $0.id.uuidString == id })!)
             }
             .listStyle(.plain)
             .scrollIndicators(.hidden)

@@ -57,6 +57,6 @@ struct VinSection: View {
 
 #Preview {
     List {
-        VinSection(car: data.first!)
+        VinSection(car: Data.cars.first!)
     }
 }

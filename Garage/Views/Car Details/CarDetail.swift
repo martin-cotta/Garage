@@ -6,8 +6,8 @@ struct CarDetail: View {
 
     var body: some View {
         List {
-            VinSection(car: car)
             GeneralSection(car: car)
+            WarrantySection(car: car)
             PowertrainSection(powertrain: car.powertrain)
             FuelSection(fuel: car.fuel)
             WheelsSection(wheels: car.wheels)
@@ -20,6 +20,6 @@ struct CarDetail: View {
 
 #Preview {
     NavigationStack {
-        CarDetail(car: data.first!)
+        CarDetail(car: Data.cars.first!)
     }
 }

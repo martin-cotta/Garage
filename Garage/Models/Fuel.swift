@@ -5,51 +5,65 @@ struct Fuel: Identifiable, Decodable {
     var id = UUID()
 
     /// Type of fuel
-    let type: String
+    let type: Record<String>
 
-    /// The recomended octane rating/number
-    let octaneRating: String
+    /// The minimum octane rating
+    let octaneRating: Record<String>
 
     /// Tank capacity in gallons
-    let capacity: Double
+    let capacity: Record<Double>
 
     /// Highway fuel efficiency in miles per gallon
-    let highwayFuelEfficiency: Double
+    let highwayFuelEfficiency: Record<Double>
 
     /// City fuel efficiency in miles per gallon
-    let cityFuelEfficiency: Double
+    let cityFuelEfficiency: Record<Double>
 }
 
 extension Fuel {
-    var capacityLabel: String {
-        "\(capacity) gallons or \(convertToLiters(gallons: capacity).formatted()) liters"
+    /// Tank capacity in liters
+    var capacityL: Record<Double> {
+        let measure = capacityMeasure.converted(to: .liters)
+        return .init(label: "Tank capacity in liters", value: measure.value)
     }
 
-    var highwayMileageString: String {
-        let mpg = "\(highwayFuelEfficiency) mpg"
-        let lp100km = "\(convertToLitersPer100km(milesPerGallon: highwayFuelEfficiency).formatted()) L/100km"
-
-        return "\(mpg) or \(lp100km)"
+    var highwayFuelEfficiencyL: Record<Double> {
+        let measure = highwayFuelEfficiencyMeasure.converted(to: .litersPer100Kilometers)
+        return .init(label: "Highway fuel efficiency in liters per km", value: measure.value)
     }
 
-    var cityMileageString: String {
-        let mpg = "\(cityFuelEfficiency) mpg"
-        let lp100km = "\(convertToLitersPer100km(milesPerGallon: cityFuelEfficiency).formatted()) L/100km"
-
-        return "\(mpg) or \(lp100km)"
+    var cityFuelEfficiencyL: Record<Double> {
+        let measure = cityFuelEfficiencyMeasure.converted(to: .litersPer100Kilometers)
+        return .init(label: "City fuel efficiency in liters per km", value: measure.value)
     }
 
-    private func convertToLiters(gallons: Double) -> Double {
-        let gallonsMeasurement = Measurement(value: gallons, unit: UnitVolume.gallons)
-        let litersMeasurement = gallonsMeasurement.converted(to: UnitVolume.liters)
-        return litersMeasurement.value.rounded(.up)
+    var capacitySummary: Record<String> {
+        let formatted = capacityL.value.formatted(.number.precision(.fractionLength(2)))
+        let value = "\(capacity.value) gallons or \(formatted) liters"
+        return .init(label: "Tank capacity", value: value)
     }
 
-    private func convertToLitersPer100km(milesPerGallon: Double) -> Double {
-        let mpgMeasurement = Measurement(
-            value: milesPerGallon,
-            unit: UnitFuelEfficiency.milesPerGallon)
-        let litersPer100Km = mpgMeasurement.converted(to: UnitFuelEfficiency.litersPer100Kilometers)
-        return litersPer100Km.value.rounded(.up)
+    var highwayFuelEfficiencySummary: Record<String> {
+        let value = "\(highwayFuelEfficiency.value) mpg or \(highwayFuelEfficiencyL.value) L/100km"
+        return .init(label: "Highway fuel efficiency", value: value)
+    }
+
+    var cityFuelEfficiencySummary: Record<String> {
+        let value = "\(cityFuelEfficiency.value) mpg or \(cityFuelEfficiencyL.value) L/100km"
+        return .init(label: "City fuel efficiency", value: value)
+    }
+
+    // MARK: - Private
+
+    private var capacityMeasure: Measurement<UnitVolume> {
+        Measurement(value: capacity.value, unit: UnitVolume.gallons)
+    }
+
+    private var highwayFuelEfficiencyMeasure: Measurement<UnitFuelEfficiency> {
+        Measurement(value: highwayFuelEfficiency.value, unit: UnitFuelEfficiency.milesPerGallon)
+    }
+
+    private var cityFuelEfficiencyMeasure: Measurement<UnitFuelEfficiency> {
+        Measurement(value: cityFuelEfficiency.value, unit: UnitFuelEfficiency.milesPerGallon)
     }
 }

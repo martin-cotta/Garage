@@ -1,10 +1,46 @@
 import SwiftUI
 
+struct DetailRowHorizontal: View {
+    var label: String
+    var value: String
+    var enableCopy = false
+
+    var body: some View {
+        HStack {
+            Text(label)
+                .bold()
+            Spacer()
+            if enableCopy {
+                Text(value)
+                    .textSelection(.enabled)
+                    .foregroundStyle(.secondary)
+            } else {
+                Text(value)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+}
+
+struct DetailRow2: View {
+    var record: Record<String>
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(record.label)
+                .bold()
+            Text(record.value)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
 struct DetailRow<InfoContent: View>: View {
     @State private var showingPopover = false
 
     var label: String
     var value: String
+    var verLayout = true
     let infoContent: InfoContent?
 
     init(label: String, value: String, @ViewBuilder infoContent: @escaping () -> InfoContent) {
