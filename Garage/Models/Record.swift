@@ -1,6 +1,6 @@
 import Foundation
 
-struct Record<T: Codable>: Codable {
+struct Record<Data: Codable>: Codable {
     let label: String
-    let value: T
+    let value: Data
 }
