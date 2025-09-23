@@ -1,6 +1,15 @@
 {
-  "originHash" : "57a9040844d8844646a20baca7c45007c45d044964a8d57b1ec71a2cc59cfa7f",
+  "originHash" : "aac247ffc8669bbc922f4e79a5ecc850f0597270299929c79c2fd7e5a709c70a",
   "pins" : [
+    {
+      "identity" : "httpclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/martin-cotta/HttpClient",
+      "state" : {
+        "revision" : "969f704312722cb4082ec938cc78c1bade2f83bc",
+        "version" : "1.0.0"
+      }
+    },
     {
       "identity" : "uxlibrary",
       "kind" : "remoteSourceControl",

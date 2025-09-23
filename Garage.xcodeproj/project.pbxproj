@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B0091432E7BC7E400B3E0A1 /* HttpClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5B0091422E7BC7E400B3E0A1 /* HttpClient */; };
 		5B2BD96A2E7A57AD006DBB2E /* UXLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 5B2BD9692E7A57AD006DBB2E /* UXLibrary */; };
+		5BCA6DEE2E82438E0048536E /* HttpClient in Frameworks */ = {isa = PBXBuildFile; productRef = 5BCA6DED2E82438E0048536E /* HttpClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B2BD96A2E7A57AD006DBB2E /* UXLibrary in Frameworks */,
+				5BCA6DEE2E82438E0048536E /* HttpClient in Frameworks */,
 				5B0091432E7BC7E400B3E0A1 /* HttpClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,7 @@
 			packageProductDependencies = (
 				5B2BD9692E7A57AD006DBB2E /* UXLibrary */,
 				5B0091422E7BC7E400B3E0A1 /* HttpClient */,
+				5BCA6DED2E82438E0048536E /* HttpClient */,
 			);
 			productName = Garage;
 			productReference = 5BFB33F92E7A2C5B00566D27 /* Garage.app */;
@@ -206,7 +209,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */,
-				5B0091412E7BC7E400B3E0A1 /* XCLocalSwiftPackageReference "../HttpClient" */,
+				5BCA6DEC2E82438E0048536E /* XCRemoteSwiftPackageReference "HttpClient" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5BFB33FA2E7A2C5B00566D27 /* Products */;
@@ -635,13 +638,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		5B0091412E7BC7E400B3E0A1 /* XCLocalSwiftPackageReference "../HttpClient" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../HttpClient;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -649,6 +645,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.2.2;
+			};
+		};
+		5BCA6DEC2E82438E0048536E /* XCRemoteSwiftPackageReference "HttpClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/martin-cotta/HttpClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -662,6 +666,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B2BD9682E7A57AD006DBB2E /* XCRemoteSwiftPackageReference "UXLibrary" */;
 			productName = UXLibrary;
+		};
+		5BCA6DED2E82438E0048536E /* HttpClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BCA6DEC2E82438E0048536E /* XCRemoteSwiftPackageReference "HttpClient" */;
+			productName = HttpClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
